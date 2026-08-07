@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-Phase 1: App Shell is complete. F001 is merged into `main`.
+Phase 1: App Shell is complete. Phase 2: Campaign and World Objects has begun.
 
 ## Completed Foundation Work
 
@@ -14,11 +14,11 @@ Phase 1: App Shell is complete. F001 is merged into `main`.
 
 ## Current Implementation Status
 
-A static Next.js campaign workspace is the current implementation baseline. It uses fixture/in-memory data only. Persistence remains undecided; no AI provider, authentication system, map engine, or production database exists.
+A static Next.js campaign workspace is the current implementation baseline. It uses fixture/in-memory data only. Persistence remains undecided; no AI provider, authentication system, map engine, or production database exists. F002 does not introduce editing, persistence, AI execution, authentication, or map functionality.
 
 ## Next Approved Feature
 
-No successor product feature is approved. DEV-001 is development-environment housekeeping, not a product capability.
+F002 World Object Dossier is the current approved feature. DEV-001 is development-environment housekeeping, not a product capability.
 
 ## Known Risks
 
