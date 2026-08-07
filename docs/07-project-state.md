@@ -11,14 +11,15 @@ Phase 1: App Shell is complete. Phase 2: Campaign and World Objects has begun.
 - Feature-spec, architecture-decision, review, and pull-request templates.
 - DOC-001 campaign-framework clarification for configurable, genre-neutral campaigns.
 - F001 static campaign workspace shell merged into `main`.
+- F002 World Object Dossier merged into `main`.
 
 ## Current Implementation Status
 
-A static Next.js campaign workspace is the current implementation baseline. It uses fixture/in-memory data only. Persistence remains undecided; no AI provider, authentication system, map engine, or production database exists. F002 does not introduce editing, persistence, AI execution, authentication, or map functionality.
+A static Next.js campaign workspace with WorldObject dossiers is the current implementation baseline. It uses fixture/in-memory data only. Persistence remains undecided; no AI provider, authentication system, map engine, or production database exists.
 
-## Next Approved Feature
+## Approved Feature State
 
-F002 World Object Dossier is the current approved feature. DEV-001 is development-environment housekeeping, not a product capability.
+F001 and F002 World Object Dossier are merged into `main`. No successor product implementation feature is currently approved. DOC-002 records exploratory future experience notes only; it is not a product capability, roadmap commitment, or implementation feature. DEV-001 is development-environment housekeeping, not a product capability.
 
 ## Known Risks
 
@@ -36,4 +37,4 @@ F002 World Object Dossier is the current approved feature. DEV-001 is developmen
 
 ## Last Updated
 
-2026-08-07
+2026-08-08
