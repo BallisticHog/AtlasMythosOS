@@ -3,7 +3,7 @@
 ## Identifier and Status
 
 - Identifier: `F001`
-- Status: approved for implementation; not started
+- Status: implemented on `feat/001-app-shell`; awaiting review/merge
 
 ## Objective
 
@@ -76,4 +76,36 @@ Add focused tests for initial workspace rendering and all navigation destination
 
 ## Completion Report
 
-Not started. On completion, list changed files, checks, manual testing, screenshots, limitations, and follow-up work.
+Implementation summary:
+
+- Added a Next.js App Router workspace with Overview, World, Map, Sessions, AI Queue, and Assets routes.
+- Added one static, genre-neutral demo campaign fixture and a shared responsive shell.
+- Kept pending AI proposals visibly separate from canon and left Assets as an intentional empty state.
+
+Important files:
+
+- `src/fixtures/demo-campaign.ts`
+- `src/components/campaign-shell/campaign-shell.tsx`
+- `src/components/workspace/primitives.tsx`
+- `src/app/` route files and `globals.css`
+
+Checks run:
+
+- `npm install`
+- `npm install --package-lock-only --foreground-scripts`
+- `npm run lint`
+- `npm run build`
+- `git diff --check`
+
+Manual verification:
+
+- Started the local development server and inspected the desktop Overview route through a local Edge screenshot.
+- The production build statically rendered all six required routes.
+- Confirmed the six live routes returned HTTP 200 from the local development server.
+- Further automated browser captures were limited by the local browser command timing out after the first screenshot; they require follow-up visual review before merge.
+
+Limitations and follow-up work:
+
+- Map is a static placeholder with no pan, zoom, coordinates, or canonical geometry.
+- No persistence, editing, uploads, authentication, AI provider, or provider actions are implemented.
+- Complete desktop and narrow-viewport route-by-route visual review remains a merge-review task.

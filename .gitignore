@@ -25,6 +25,10 @@ Thumbs.db
 .vscode/
 .idea/
 
+# Next.js generated types
+next-env.d.ts
+*.tsbuildinfo
+
 # Local generated assets
 generated/
 uploads/
