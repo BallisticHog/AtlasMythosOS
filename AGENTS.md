@@ -2,17 +2,34 @@
 
 ## Project Structure & Module Organization
 
-This repository currently holds the product foundation for Atlas Mythos OS, an AI-assisted TTRPG campaign companion.
+This repository contains the Atlas Mythos OS product foundation and the Phase 1 Next.js application shell.
 
 - `README.md` gives the project entry point.
 - `docs/00-project-bible.md` is the source of truth for product principles and scope.
 - `docs/01-product-vision.md` through `docs/06-ai-agent-brief.md` define the experience, architecture, MVP, data model, and AI workflow.
 
-When the application is scaffolded, keep product code under `src/`, reusable UI in `src/components/`, feature logic in `src/features/`, and tests beside the code they cover or in `tests/`. Put static images and map assets in `public/`.
+Application code lives under `src/`, with the current Next.js App Router routes, reusable components, and fixture data following that structure. Keep reusable UI in `src/components/`; add feature logic in `src/features/` when that directory is needed. Put static images and map assets in `public/`.
+
+The canonical repository is https://github.com/BallisticHog/AtlasMythosOS. The repository and committed `/docs` are the permanent source of truth; conversation or chat context must not override repository documentation.
 
 ## Build, Test, and Development Commands
 
-No build, development, lint, or test commands exist yet; this is a docs-only baseline. Do not invent scripts in documentation. After the planned Next.js/TypeScript scaffold is added, document the actual commands in `README.md` and keep them current, for example `npm run dev`, `npm run lint`, and `npm test`.
+Use the current native WSL workflow to install dependencies and run the application:
+
+```bash
+nvm use
+npm ci
+npm run dev
+```
+
+Run validation with:
+
+```bash
+npm run lint
+npm run build
+```
+
+No automated test command currently exists. Do not document or run `npm test` unless a test script is added to `package.json`.
 
 ## Local Development Environment
 
@@ -44,7 +61,7 @@ No build, development, lint, or test commands exist yet; this is a docs-only bas
 
 ## Coding Style & Naming Conventions
 
-Follow the repository's future TypeScript and React tooling rather than adding ad hoc formatters. Use two spaces for JSON, Markdown, YAML, and TypeScript. Prefer:
+Follow the repository's existing Next.js, React, and TypeScript toolchain rather than adding ad hoc formatters. Use two spaces for JSON, Markdown, YAML, and TypeScript. Prefer:
 
 - `PascalCase.tsx` for React components, such as `CampaignSidebar.tsx`.
 - `kebab-case` for route folders and non-component files, such as `world-map/` or `campaign-store.ts`.
@@ -76,6 +93,7 @@ Before implementation, read `docs/00-project-bible.md`, `docs/03-technical-archi
 - Avoid broad, unrelated refactors and keep work within the active feature specification.
 - Run relevant available checks before reporting completion.
 - Report all changed files, checks run, and remaining risks.
+- Report material execution failures and recovery actions, not only final success. Include observable failed commands or tooling failures, unexpected environment or repository-state findings, affected files or state, recovery actions, residual risks or warnings, and validation results. Do not request or expose private chain-of-thought; report only observable execution events, errors, state changes, and recovery actions.
 - Never commit secrets, API keys, generated model files, or local environment data.
 
 Update the appropriate product, architecture, data-model, state, feature, or decision document when a durable contract changes.
