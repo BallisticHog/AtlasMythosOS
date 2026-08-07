@@ -3,7 +3,7 @@
 ## Identifier and Status
 
 - Identifier: `F001`
-- Status: implemented on `feat/001-app-shell`; awaiting review/merge
+- Status: completed and merged into `main`
 
 ## Objective
 

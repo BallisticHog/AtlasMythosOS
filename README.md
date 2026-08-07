@@ -58,10 +58,12 @@ git push -u origin main
 
 ## Application Commands
 
-Install dependencies and run the local campaign workspace:
+Run the local campaign workspace from Ubuntu in WSL. NVM and the Node version specified
+by `.nvmrc` must be installed inside WSL:
 
 ```bash
-npm install
+nvm use
+npm ci
 npm run dev
 ```
 
