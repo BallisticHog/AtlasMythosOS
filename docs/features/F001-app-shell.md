@@ -25,6 +25,10 @@ Open the local app, arrive directly in a campaign workspace, use sidebar navigat
 - Calm, readable campaign-operations appearance with responsive layouts.
 - Clear empty states where no content exists and selected states for active navigation and inspected content.
 
+## Design Constraint
+
+Placeholder UI must not imply Atlas is hard-coded for fantasy, D&D, superheroes, or any single ruleset.
+
 ## Non-Goals
 
 - Authentication, database, persistence, external AI calls, ComfyUI connection, combat, dice, or rules automation.

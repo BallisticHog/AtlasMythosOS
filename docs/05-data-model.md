@@ -197,6 +197,16 @@ Fields:
 - metadata
 - createdAt
 
+## Future Campaign Configuration
+
+Campaign configuration and visual identity are conceptual future needs, not current fields.
+
+- Campaign-level registries may contain references to WorldObjects.
+- Maps may have parent/child relationships.
+- WorldObjects may support optional campaign metadata or custom presentation.
+
+The physical schema for these concepts is intentionally undecided.
+
 ## Key Modeling Rules
 
 ### Canon Is Explicit

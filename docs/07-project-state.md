@@ -9,6 +9,7 @@ Phase 0: Foundation. Documentation is substantially complete and the repository 
 - Project bible, product vision, AI workflow, technical architecture, roadmap, data model, and agent brief.
 - Connected Git repository and initial documentation history.
 - Feature-spec, architecture-decision, review, and pull-request templates.
+- DOC-001 campaign-framework clarification for configurable, genre-neutral campaigns.
 
 ## Current Implementation Status
 
@@ -23,12 +24,14 @@ F001: App Shell. Its specification is `docs/features/F001-app-shell.md`. It is t
 - AI-generated implementation can drift from product constraints without feature-level review.
 - Early UI choices can accidentally imply a tactical VTT or marketing site.
 - Adding infrastructure before it is needed could obscure the core campaign workflow.
+- Excessive campaign configuration could overwhelm setup or fragment the generic model.
 
 ## Unresolved Decisions
 
 - Exact local persistence approach for the first implementation.
 - Final UI component and styling primitives.
 - Criteria and interface for future optional local AI worker integration.
+- Physical schema and authoring model for future campaign configuration and custom presentation.
 
 ## Last Updated
 

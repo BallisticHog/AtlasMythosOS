@@ -27,6 +27,7 @@ Start here:
 - [Data Model](docs/05-data-model.md)
 - [AI Agent Brief](docs/06-ai-agent-brief.md)
 - [Project State](docs/07-project-state.md)
+- [Campaign Framework](docs/08-campaign-framework.md)
 
 ## Working Principles
 
