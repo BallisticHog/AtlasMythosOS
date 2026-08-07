@@ -3,7 +3,7 @@
 ## Identifier and Status
 
 - Identifier: F003
-- Status: in progress
+- Status: complete
 
 ## Objective
 
@@ -165,13 +165,13 @@ F003 introduces no UI and must not alter existing accessibility behavior. Future
 - [x] Idempotent seed and verification workflows created.
 - [x] Fresh setup, repeated seed, failure path, and separate-process persistence verified.
 - [x] README/AGENTS and project state updated.
-- [ ] Lint, build, diff check, and scope/Git audits passed (`npm run build` is blocked by the execution environment; other checks pass).
-- [ ] Feature marked complete with a completion report.
-- [ ] Implementation commit created, branch pushed, and remote ref verified.
+- [x] Lint, build, diff check, and scope/Git audits passed.
+- [x] Feature marked complete with a completion report.
+- [x] Implementation commit created, branch pushed, and remote ref verified.
 
 ## Completion Report
 
-Implementation is present but F003 is not complete because the required production build could not finish in the execution environment.
+F003 is complete on its feature branch. It has not been merged into `main`.
 
 Implementation summary:
 
@@ -210,10 +210,18 @@ Validation results:
 - Two separate verification executions passed and also proved foreign-key rejection plus separate readable status and visibility fields.
 - Verification against a separately migrated empty database exited non-zero with a useful missing-campaign error.
 - `npm run lint`, `npx tsc --noEmit`, and the database workflows passed.
-- `npm run build` did not pass: Next.js Turbopack failed while creating a helper process because binding its internal local port was not permitted. A permitted retry produced the same environmental failure.
+- `npm run build` passed when the Product Owner executed it manually in the normal native WSL environment outside the Codex execution sandbox.
+- `git diff --check` and the scope/Git audits passed.
+
+Material failures and recovery:
+
+- Inside the Codex execution sandbox, Next.js Turbopack could not bind an internal local port while creating its build helper process. A permitted retry produced the same `Operation not permitted` environmental failure.
+- The Product Owner subsequently ran the required `npm run build` command in the normal native WSL environment, where it passed. This confirms the earlier failure was a Codex sandbox/execution-environment limitation rather than an Atlas source failure.
+- Initial database script execution through the `tsx` CLI encountered a sandbox IPC permission failure. The scripts were changed to use `node --import tsx`, after which the database workflows passed without that IPC requirement.
+- The first sandboxed `npm ci` attempt could not install the native `better-sqlite3` dependency. A permitted native WSL retry completed successfully.
 
 Limitations and follow-up boundary:
 
-- F003 must remain in progress until `npm run build` passes in an environment that permits the Next.js build helper and the final Git/diff audits are complete.
 - The current World and dossier UI remains fixture-backed. A future approved read-path/authoring feature, not F003, may connect application UI to this data boundary.
 - No authoring CRUD, authentication, permissions, AI, maps, relationships, notes, annotations, or speculative entities were introduced.
+- No successor implementation feature is approved by completing F003.
