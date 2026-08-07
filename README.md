@@ -26,6 +26,7 @@ Start here:
 - [MVP Roadmap](docs/04-mvp-roadmap.md)
 - [Data Model](docs/05-data-model.md)
 - [AI Agent Brief](docs/06-ai-agent-brief.md)
+- [Project State](docs/07-project-state.md)
 
 ## Working Principles
 
@@ -54,3 +55,14 @@ git branch -M main
 git push -u origin main
 ```
 
+
+## Development Workflow
+
+The workflow foundation keeps AI-assisted implementation small, reviewable, and aligned
+with the product documents.
+
+- [Contributor Guidelines](AGENTS.md)
+- [Feature Specifications](docs/features/)
+- [Architecture Decisions](docs/decisions/)
+- [Independent Review Charter](docs/prompts/claude-reviewer.md)
+- [Pull Request Template](.github/pull_request_template.md)

@@ -1,0 +1,53 @@
+# Repository Guidelines
+
+## Project Structure & Module Organization
+
+This repository currently holds the product foundation for Atlas Mythos OS, an AI-assisted TTRPG campaign companion.
+
+- `README.md` gives the project entry point.
+- `docs/00-project-bible.md` is the source of truth for product principles and scope.
+- `docs/01-product-vision.md` through `docs/06-ai-agent-brief.md` define the experience, architecture, MVP, data model, and AI workflow.
+
+When the application is scaffolded, keep product code under `src/`, reusable UI in `src/components/`, feature logic in `src/features/`, and tests beside the code they cover or in `tests/`. Put static images and map assets in `public/`.
+
+## Build, Test, and Development Commands
+
+No build, development, lint, or test commands exist yet; this is a docs-only baseline. Do not invent scripts in documentation. After the planned Next.js/TypeScript scaffold is added, document the actual commands in `README.md` and keep them current, for example `npm run dev`, `npm run lint`, and `npm test`.
+
+## Coding Style & Naming Conventions
+
+Follow the repository's future TypeScript and React tooling rather than adding ad hoc formatters. Use two spaces for JSON, Markdown, YAML, and TypeScript. Prefer:
+
+- `PascalCase.tsx` for React components, such as `CampaignSidebar.tsx`.
+- `kebab-case` for route folders and non-component files, such as `world-map/` or `campaign-store.ts`.
+- `camelCase` for variables and functions; `PascalCase` for types, interfaces, and components.
+
+Keep AI integrations behind explicit service boundaries. The database is canonical; generated suggestions must be reviewable before becoming campaign facts.
+
+## Testing Guidelines
+
+Add focused automated tests with each behavior change once test tooling exists. Name tests after observable behavior, for example `campaign-store.test.ts` or `MapPanel.test.tsx`. Cover data validation, permission boundaries, and AI suggestion approval flows before visual polish. Run the project's documented lint and test commands before opening a pull request.
+
+## Commit & Pull Request Guidelines
+
+Existing history uses short, imperative summaries, such as `Add founding project docs`. Continue that pattern: `Add campaign workspace shell` or `Fix region visibility filter`. Keep commits single-purpose.
+
+Pull requests should explain the user-facing change, note affected docs or data contracts, link the relevant issue when one exists, and include screenshots for UI changes. Call out migrations, configuration changes, and any AI-safety implications explicitly.
+
+## Documentation Discipline
+
+Update the relevant `docs/` file when a product decision, architecture boundary, or data-model contract changes. Resolve disagreements with the project bible before implementing a new direction.
+
+## Required Agent Workflow
+
+Before implementation, read `docs/00-project-bible.md`, `docs/03-technical-architecture.md`, `docs/04-mvp-roadmap.md`, `docs/05-data-model.md`, and the current approved feature specification in `docs/features/`. Treat them as the implementation contract.
+
+- Keep AI suggestions as reviewable proposals until a human accepts canon.
+- Keep map visuals and generated decoration separate from campaign lore.
+- Do not introduce cloud AI dependencies into the core app; providers must remain optional adapters.
+- Avoid broad, unrelated refactors and keep work within the active feature specification.
+- Run relevant available checks before reporting completion.
+- Report all changed files, checks run, and remaining risks.
+- Never commit secrets, API keys, generated model files, or local environment data.
+
+Update the appropriate product, architecture, data-model, state, feature, or decision document when a durable contract changes.
