@@ -24,8 +24,8 @@ export default function WorldPage() {
                 {items.map((worldObject) => (
                   <Link className="object-row" href={"/world/" + worldObject.id} key={worldObject.id}>
                     <span className="object-row-mark" aria-hidden="true" />
-                    <span><h3>{worldObject.name}</h3><p>{worldObject.summary}</p></span>
-                    <span className="object-row-meta"><StatusBadge value={worldObject.status} /><StatusBadge value={worldObject.visibility} /></span>
+                    <div><h3>{worldObject.name}</h3><p>{worldObject.summary}</p></div>
+                    <div className="object-row-meta"><StatusBadge value={worldObject.status} /><StatusBadge value={worldObject.visibility} /></div>
                   </Link>
                 ))}
               </div>
