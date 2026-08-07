@@ -56,6 +56,22 @@ git branch -M main
 git push -u origin main
 ```
 
+## Application Commands
+
+Install dependencies and run the local campaign workspace:
+
+```bash
+npm install
+npm run dev
+```
+
+Run the required verification and production commands:
+
+```bash
+npm run lint
+npm run build
+npm run start
+```
 
 ## Development Workflow
 

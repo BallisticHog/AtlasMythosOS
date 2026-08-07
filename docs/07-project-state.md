@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-Phase 0: Foundation. Documentation is substantially complete and the repository now has a workflow foundation for scoped multi-agent work.
+Phase 1: App Shell. F001 is implemented on `feat/001-app-shell` and awaiting review/merge.
 
 ## Completed Foundation Work
 
@@ -10,14 +10,15 @@ Phase 0: Foundation. Documentation is substantially complete and the repository 
 - Connected Git repository and initial documentation history.
 - Feature-spec, architecture-decision, review, and pull-request templates.
 - DOC-001 campaign-framework clarification for configurable, genre-neutral campaigns.
+- F001 static campaign workspace shell implemented on its feature branch.
 
 ## Current Implementation Status
 
-No application code exists yet. There is no scaffold, dependency set, local database, AI provider, authentication system, or production environment.
+A static Next.js campaign workspace exists on `feat/001-app-shell`. It uses in-memory fixture data only; no persistence, local database, AI provider, authentication system, or production environment exists.
 
 ## Next Approved Feature
 
-F001: App Shell. Its specification is `docs/features/F001-app-shell.md`. It is the only approved implementation feature at this point.
+F001: App Shell is implemented on its feature branch and awaiting review/merge. No successor implementation feature is approved.
 
 ## Known Risks
 
