@@ -22,6 +22,12 @@ This stack is a recommendation, not a final law.
 - Local AI bridge: small worker service that talks to ComfyUI or other local tools
 - Cloud AI bridge: adapter layer for OpenAI, Anthropic, or other providers
 
+## Initial Local Persistence Decision
+
+F003 accepts SQLite with Drizzle ORM, Drizzle Kit migrations, and `better-sqlite3` for the initial local persistence foundation. The physical schema begins deliberately with only Campaign and WorldObject, and committed SQL migrations provide repeatable history. See `docs/decisions/ADR-001-local-persistence.md`.
+
+This selection resolves the early local-prototyping choice, not the later production or multi-user persistence architecture. PostgreSQL remains a possible future choice when hosting and collaboration requirements are known. The current fixture-backed UI is not switched to database reads by F003.
+
 ## High-Level Modules
 
 ### Campaign Core
@@ -119,4 +125,3 @@ The first app milestone should include:
 
 AI features should begin as a review queue and mocked provider before adding real model
 calls.
-

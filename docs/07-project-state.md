@@ -15,11 +15,11 @@ Phase 1: App Shell is complete. Phase 2: Campaign and World Objects has begun.
 
 ## Current Implementation Status
 
-A static Next.js campaign workspace with WorldObject dossiers is the current implementation baseline. It uses fixture/in-memory data only. Persistence remains undecided; no AI provider, authentication system, map engine, or production database exists.
+A static Next.js campaign workspace with WorldObject dossiers is the current implementation baseline. It uses fixture/in-memory data only. F003 is approved to add a narrow local persistence foundation, but the existing World and dossier UI remains fixture-backed throughout F003. No AI provider, authentication system, map engine, or production database exists.
 
 ## Approved Feature State
 
-F001 and F002 World Object Dossier are merged into `main`. No successor product implementation feature is currently approved. DOC-002 records exploratory future experience notes only; it is not a product capability, roadmap commitment, or implementation feature. DEV-001 is development-environment housekeeping, not a product capability.
+F001 and F002 World Object Dossier are merged into `main`. F003 Local Persistence Foundation is the current approved implementation feature. It is limited to SQLite infrastructure and persisted Campaign/WorldObject core records; it does not approve UI read-path migration or authoring CRUD. DOC-002 records exploratory future experience notes only; it is not a product capability, roadmap commitment, or implementation feature. DEV-001 is development-environment housekeeping, not a product capability.
 
 ## Known Risks
 
@@ -30,7 +30,7 @@ F001 and F002 World Object Dossier are merged into `main`. No successor product 
 
 ## Unresolved Decisions
 
-- Exact local persistence approach for the first implementation.
+- Production and multi-user persistence architecture after the initial F003 local SQLite foundation.
 - Final UI component and styling primitives.
 - Criteria and interface for future optional local AI worker integration.
 - Physical schema and authoring model for future campaign configuration and custom presentation.
