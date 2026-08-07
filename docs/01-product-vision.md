@@ -94,6 +94,13 @@ Different information can be:
 - hidden until discovered
 - AI-suggested but unaccepted
 
+## Campaign Framework
+
+Campaigns should support campaign-specific presentation, curated registries or
+collections, visual identity, and hierarchical maps without hard-coding a genre or ruleset.
+
+See `docs/08-campaign-framework.md` for the conceptual boundary and future direction.
+
 ## Early Feature Boundaries
 
 The MVP should avoid:

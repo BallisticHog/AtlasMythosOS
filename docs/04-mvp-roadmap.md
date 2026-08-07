@@ -31,14 +31,14 @@ Deliverables:
 - campaign workspace layout
 - sidebar navigation
 - campaign overview screen
-- local persistence choice implemented
+- static in-memory example data only; no persistence mechanism selected
 - basic styling system
 
 Exit criteria:
 
 - user can open the app locally
 - there is a real first screen, not a landing page
-- the app has a place for campaigns, maps, world objects, and notes
+- workspace navigation exposes Overview, World, Map, Sessions, AI Queue, and Assets
 
 ## Phase 2: Campaign And World Objects
 
@@ -133,6 +133,6 @@ Exit criteria:
 After this docs foundation, the recommended next task is:
 
 Create the app shell for Atlas Mythos OS with a campaign workspace, navigation for
-World, Map, Notes, AI Queue, and Assets, and placeholder screens that match the product
+Overview, World, Map, Sessions, AI Queue, and Assets, and placeholder screens that match the product
 vision.
 
