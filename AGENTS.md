@@ -29,6 +29,15 @@ npm run lint
 npm run build
 ```
 
+Set up and verify the local SQLite database explicitly with:
+
+```bash
+npm run db:setup
+npm run db:verify
+```
+
+`db:setup` applies committed Drizzle migrations and idempotently seeds the demo records. The default runtime path is `data/atlas.db`; `ATLAS_DB_PATH` may select another local path. Importing the database client must not apply migrations, and runtime database/WAL/SHM files must remain untracked. The F003 database boundary does not make the current fixture-backed UI database-backed.
+
 No automated test command currently exists. Do not document or run `npm test` unless a test script is added to `package.json`.
 
 ## Local Development Environment

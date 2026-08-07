@@ -75,6 +75,28 @@ npm run build
 npm run start
 ```
 
+## Local Database
+
+F003 provides an explicit local SQLite setup. The default database is `data/atlas.db`; set `ATLAS_DB_PATH` to use another path. Database files and SQLite runtime companions are ignored by Git.
+
+Create a usable demo database from committed migrations, then verify it in a separate process:
+
+```bash
+npm run db:setup
+npm run db:verify
+```
+
+The individual database commands are:
+
+```bash
+npm run db:generate # generate a reviewed migration after an approved schema change
+npm run db:migrate  # apply committed migrations
+npm run db:seed     # create the demo records only when absent
+npm run db:verify   # query and validate the persisted demo records
+```
+
+Migrations are never applied merely by importing the database module. The current World and dossier UI remains fixture-backed; F003 establishes persistence infrastructure without switching application reads or adding authoring controls.
+
 ## Development Workflow
 
 The workflow foundation keeps AI-assisted implementation small, reviewable, and aligned

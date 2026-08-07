@@ -12,14 +12,15 @@ Phase 1: App Shell is complete. Phase 2: Campaign and World Objects has begun.
 - DOC-001 campaign-framework clarification for configurable, genre-neutral campaigns.
 - F001 static campaign workspace shell merged into `main`.
 - F002 World Object Dossier merged into `main`.
+- F003 Local Persistence Foundation complete on its feature branch; it is not yet merged into `main`.
 
 ## Current Implementation Status
 
-A static Next.js campaign workspace with WorldObject dossiers is the current implementation baseline. It uses fixture/in-memory data only. Persistence remains undecided; no AI provider, authentication system, map engine, or production database exists.
+A static Next.js campaign workspace with WorldObject dossiers remains the user-facing baseline and uses fixture/in-memory data only. F003's narrow SQLite persistence foundation is complete on its feature branch, including a production build validated by the Product Owner in the normal native WSL environment. The existing World and dossier UI remains fixture-backed; F003 does not switch application reads to the database. No AI provider, authentication system, map engine, or production database exists.
 
 ## Approved Feature State
 
-F001 and F002 World Object Dossier are merged into `main`. No successor product implementation feature is currently approved. DOC-002 records exploratory future experience notes only; it is not a product capability, roadmap commitment, or implementation feature. DEV-001 is development-environment housekeeping, not a product capability.
+F001 and F002 World Object Dossier are merged into `main`. F003 Local Persistence Foundation is complete on its feature branch but is not merged into `main`. It is limited to SQLite infrastructure and persisted Campaign/WorldObject core records and does not approve UI read-path migration or authoring CRUD. No successor implementation feature is currently approved. DOC-002 records exploratory future experience notes only; it is not a product capability, roadmap commitment, or implementation feature. DEV-001 is development-environment housekeeping, not a product capability.
 
 ## Known Risks
 
@@ -30,7 +31,7 @@ F001 and F002 World Object Dossier are merged into `main`. No successor product 
 
 ## Unresolved Decisions
 
-- Exact local persistence approach for the first implementation.
+- Production and multi-user persistence architecture after the initial F003 local SQLite foundation.
 - Final UI component and styling primitives.
 - Criteria and interface for future optional local AI worker integration.
 - Physical schema and authoring model for future campaign configuration and custom presentation.
