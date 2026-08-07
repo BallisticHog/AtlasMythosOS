@@ -3,7 +3,7 @@
 ## Identifier and Status
 
 - Identifier: F002
-- Status: approved
+- Status: complete
 
 ## Objective
 
@@ -84,4 +84,37 @@ A presentation view could become a Dossier data model; display-only fixture fiel
 
 ## Completion Report
 
-Pending implementation and validation on feat/002-world-object-dossier.
+Implementation summary:
+
+- Added semantic WorldObject links on the World index and a generic static /world/[id] dossier route.
+- Extended static display fixtures with description, optional known information, static related-record references, source context, and explicit suggestion WorldObject IDs.
+- Added a controlled WorldObject not-found page and responsive dossier styling.
+- Kept pending suggestions visibly separate as Pending suggestion / Not canon; no suggestion becomes an accepted relationship.
+
+Changed files:
+
+- docs/07-project-state.md
+- docs/features/F002-world-object-dossier.md
+- src/app/globals.css
+- src/app/world/page.tsx
+- src/app/world/[id]/page.tsx
+- src/app/world/[id]/not-found.tsx
+- src/fixtures/demo-campaign.ts
+
+Validation performed:
+
+- npm ci passed.
+- npm run lint passed.
+- npm run build passed and statically generated all six known dossier routes.
+- git diff --check passed.
+- package.json and package-lock.json are unchanged.
+- Local HTTP checks returned 200 for World, all six known dossiers, and all existing F001 routes. The unknown object route returned the expected 404.
+
+Manual verification and limitations:
+
+- Browser-based visual, keyboard-focus, and narrow-viewport validation could not run because the browser-control runtime failed to initialize with the local workspace helper error.
+- The local development server started successfully. Product Owner review should verify desktop/narrow visual layout and keyboard focus in a browser before merge.
+
+Follow-up work:
+
+- No persistence, editing, AI execution, relationship infrastructure, authentication, or map work was introduced. Those remain future features.
