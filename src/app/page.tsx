@@ -48,7 +48,7 @@ export default function OverviewPage() {
         <article className="region-focus">
           <div className="region-focus-topline">
             <span className="eyebrow">Highlighted region</span>
-            {highlightedRegion ? <StatusBadge status={highlightedRegion.status} /> : null}
+            {highlightedRegion ? <StatusBadge value={highlightedRegion.status} /> : null}
           </div>
           <h3>{demoCampaign.currentRegion}</h3>
           <p>{demoCampaign.currentRegionSummary}</p>

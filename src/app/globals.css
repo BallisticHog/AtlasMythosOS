@@ -176,12 +176,14 @@ button, summary, a { -webkit-tap-highlight-color: transparent; }
 .object-row-mark { width: 10px; height: 10px; margin-top: 7px; border: 1px solid var(--accent); transform: rotate(45deg); }
 .object-row h3 { font-size: 19px; }
 .object-row p { max-width: 660px; margin: 4px 0 0; color: var(--text-soft); font-size: 14px; }
+.object-row-meta { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; }
 .status-badge, .non-canon-label { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; padding: 4px 7px; border: 1px solid var(--line); color: var(--text-soft); font-size: 10px; font-weight: 700; letter-spacing: 0.06em; line-height: 1; text-transform: uppercase; }
 .status-badge::before, .non-canon-label::before { content: ""; width: 5px; height: 5px; background: currentColor; border-radius: 50%; }
 .status-canon { border-color: var(--accent-deep); color: var(--accent); }
+.status-draft { border-color: #725d3b; color: var(--warning); }
 .status-public { color: #9bb2c5; }
 .status-private { color: var(--private); }
-.status-pending-suggestion, .non-canon-label { border-color: #725d3b; color: var(--warning); }
+.status-hidden, .non-canon-label { border-color: #725d3b; color: var(--warning); }
 
 .map-workspace { display: grid; grid-template-columns: minmax(0, 1fr) 300px; min-height: 500px; border: 1px solid var(--line); background: var(--panel); }
 .map-stage { position: relative; min-height: 500px; overflow: hidden; background: #16201e; border-right: 1px solid var(--line); }
@@ -262,7 +264,7 @@ button, summary, a { -webkit-tap-highlight-color: transparent; }
   .campaign-stats div, .campaign-stats div + div { padding: 11px 0; border-right: 0; border-bottom: 1px solid var(--line); }
   .campaign-stats div:last-child { border-bottom: 0; }
   .object-row { grid-template-columns: 12px minmax(0, 1fr); }
-  .object-row .status-badge { grid-column: 2; justify-self: start; }
+  .object-row-meta { grid-column: 2; justify-self: start; }
   .session-record-heading, .session-record-footer { display: block; }
   .session-record-heading > p { margin-top: 10px; text-align: left; }
   .session-record-footer .inline-object-list { margin-top: 10px; }

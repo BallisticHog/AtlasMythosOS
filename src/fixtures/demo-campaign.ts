@@ -1,11 +1,14 @@
-export type CanonStatus = "Canon" | "Public" | "Private" | "Pending suggestion";
+// Illustrative display data only; this is not a persistence schema.
+export type ContentStatus = "Canon" | "Draft";
+export type Visibility = "Public" | "Private" | "Hidden";
 
 export type WorldObject = {
   id: string;
   name: string;
   kind: "Region / location" | "Person" | "Faction" | "Event / thread";
   summary: string;
-  status: CanonStatus;
+  status: ContentStatus;
+  visibility: Visibility;
 };
 
 export const demoCampaign = {
@@ -24,7 +27,8 @@ export const worldObjects: WorldObject[] = [
     name: "North Quarter",
     kind: "Region / location",
     summary: "A residential district divided by old survey walls.",
-    status: "Public",
+    status: "Canon",
+    visibility: "Public",
   },
   {
     id: "glass-harbor",
@@ -32,20 +36,23 @@ export const worldObjects: WorldObject[] = [
     kind: "Region / location",
     summary: "A working waterfront where missing manifests keep returning.",
     status: "Canon",
+    visibility: "Public",
   },
   {
     id: "old-transit-ward",
     name: "Old Transit Ward",
     kind: "Region / location",
     summary: "Disused platforms beneath a busy civic exchange.",
-    status: "Public",
+    status: "Draft",
+    visibility: "Public",
   },
   {
     id: "mara-vale",
     name: "Mara Vale",
     kind: "Person",
     summary: "Courier, witness, and the only known reader of the Gate Seven notices.",
-    status: "Private",
+    status: "Canon",
+    visibility: "Private",
   },
   {
     id: "the-archive",
@@ -53,6 +60,7 @@ export const worldObjects: WorldObject[] = [
     kind: "Faction",
     summary: "A civic records organization with a careful public face.",
     status: "Canon",
+    visibility: "Public",
   },
   {
     id: "blackout-gate-seven",
@@ -60,6 +68,7 @@ export const worldObjects: WorldObject[] = [
     kind: "Event / thread",
     summary: "An unresolved outage tied to a missing transit ledger.",
     status: "Canon",
+    visibility: "Public",
   },
 ];
 

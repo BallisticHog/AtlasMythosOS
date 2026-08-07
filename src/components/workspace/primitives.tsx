@@ -1,9 +1,9 @@
-import type { CanonStatus } from "@/fixtures/demo-campaign";
+import type { ContentStatus, Visibility } from "@/fixtures/demo-campaign";
 
-export function StatusBadge({ status }: { status: CanonStatus }) {
-  const tone = status.toLowerCase().replaceAll(" ", "-");
+export function StatusBadge({ value }: { value: ContentStatus | Visibility }) {
+  const tone = value.toLowerCase().replaceAll(" ", "-");
 
-  return <span className={`status-badge status-${tone}`}>{status}</span>;
+  return <span className={`status-badge status-${tone}`}>{value}</span>;
 }
 
 export function PageHeading({
