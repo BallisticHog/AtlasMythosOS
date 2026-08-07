@@ -3,7 +3,7 @@
 ## Identifier and Status
 
 - Identifier: F003
-- Status: approved
+- Status: in progress
 
 ## Objective
 
@@ -157,18 +157,63 @@ F003 introduces no UI and must not alter existing accessibility behavior. Future
 - [x] Feature branch created.
 - [x] ADR and approved feature specification written before implementation.
 - [x] Project state marks F003 as the current approved implementation feature.
-- [ ] Spec/ADR commit created before implementation.
-- [ ] Stable dependency versions inspected and persistence packages installed.
-- [ ] SQLite and Drizzle configured with committed migration.
-- [ ] Only Campaign and WorldObject tables created with required constraints.
-- [ ] Runtime database artifacts ignored.
-- [ ] Idempotent seed and verification workflows created.
-- [ ] Fresh setup, repeated seed, failure path, and separate-process persistence verified.
-- [ ] README/AGENTS and final project state updated.
-- [ ] Lint, build, diff check, and scope/Git audits passed.
+- [x] Spec/ADR commit created before implementation.
+- [x] Stable dependency versions inspected and persistence packages installed.
+- [x] SQLite and Drizzle configured with committed migration.
+- [x] Only Campaign and WorldObject tables created with required constraints.
+- [x] Runtime database artifacts ignored.
+- [x] Idempotent seed and verification workflows created.
+- [x] Fresh setup, repeated seed, failure path, and separate-process persistence verified.
+- [x] README/AGENTS and project state updated.
+- [ ] Lint, build, diff check, and scope/Git audits passed (`npm run build` is blocked by the execution environment; other checks pass).
 - [ ] Feature marked complete with a completion report.
 - [ ] Implementation commit created, branch pushed, and remote ref verified.
 
 ## Completion Report
 
-Pending implementation and validation. Do not treat F003 as complete while its status is approved.
+Implementation is present but F003 is not complete because the required production build could not finish in the execution environment.
+
+Implementation summary:
+
+- Added a repository-local SQLite connection boundary using Drizzle and `better-sqlite3`, with foreign keys enabled, WAL journaling, a default `data/atlas.db` path, and `ATLAS_DB_PATH` override support.
+- Added an intentionally narrow Campaign and WorldObject schema, a committed initial SQL migration, focused read/create-if-absent repositories, and explicit migrate/seed/setup/verify workflows.
+- Seeded The Crossroads and six core demo WorldObjects without copying F002 presentation helpers into persistence.
+- Kept all UI routes, components, styles, and fixture reads unchanged.
+
+Changed files:
+
+- Persistence contracts and workflow: `AGENTS.md`, `README.md`, `.gitignore`, `package.json`, `package-lock.json`, `drizzle.config.ts`.
+- Migration history: `drizzle/0000_yellow_miek.sql`, `drizzle/meta/0000_snapshot.json`, `drizzle/meta/_journal.json`.
+- Database boundary: `src/db/schema.ts`, `src/db/client.ts`, `src/db/repositories/campaign-repository.ts`, `src/db/repositories/world-object-repository.ts`.
+- Developer scripts: `scripts/demo-seed-data.ts`, `scripts/db-migrate.ts`, `scripts/db-seed.ts`, `scripts/db-verify.ts`.
+- Durable documentation: `docs/decisions/ADR-001-local-persistence.md`, `docs/03-technical-architecture.md`, `docs/07-project-state.md`, and this feature specification.
+
+Resolved dependencies:
+
+- Runtime: `drizzle-orm@0.45.2`, `better-sqlite3@13.0.3`.
+- Development: `drizzle-kit@0.31.10`, `@types/better-sqlite3@9.6.0`, `tsx@4.23.11`.
+
+Database workflow:
+
+- Default location: `data/atlas.db`.
+- Migrate: `npm run db:migrate`.
+- Seed: `npm run db:seed`.
+- Fresh demo setup: `npm run db:setup`.
+- Verify: `npm run db:verify`.
+
+Validation results:
+
+- Native WSL Node 24.14.0 and npm 11.9.0 confirmed.
+- `npm ci` passed after a permitted retry allowed the native dependency download; npm reported four moderate audit findings and no audit fix was applied.
+- A fresh `/tmp/atlas-f003-final.SRt6X2/atlas.db` migration and seed passed with 1 Campaign and 6 WorldObjects inserted.
+- A second seed inserted 0 Campaigns and 0 WorldObjects, proving idempotent create-if-absent behavior.
+- Two separate verification executions passed and also proved foreign-key rejection plus separate readable status and visibility fields.
+- Verification against a separately migrated empty database exited non-zero with a useful missing-campaign error.
+- `npm run lint`, `npx tsc --noEmit`, and the database workflows passed.
+- `npm run build` did not pass: Next.js Turbopack failed while creating a helper process because binding its internal local port was not permitted. A permitted retry produced the same environmental failure.
+
+Limitations and follow-up boundary:
+
+- F003 must remain in progress until `npm run build` passes in an environment that permits the Next.js build helper and the final Git/diff audits are complete.
+- The current World and dossier UI remains fixture-backed. A future approved read-path/authoring feature, not F003, may connect application UI to this data boundary.
+- No authoring CRUD, authentication, permissions, AI, maps, relationships, notes, annotations, or speculative entities were introduced.

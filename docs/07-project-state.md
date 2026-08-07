@@ -15,11 +15,11 @@ Phase 1: App Shell is complete. Phase 2: Campaign and World Objects has begun.
 
 ## Current Implementation Status
 
-A static Next.js campaign workspace with WorldObject dossiers is the current implementation baseline. It uses fixture/in-memory data only. F003 is approved to add a narrow local persistence foundation, but the existing World and dossier UI remains fixture-backed throughout F003. No AI provider, authentication system, map engine, or production database exists.
+A static Next.js campaign workspace with WorldObject dossiers remains the user-facing baseline and uses fixture/in-memory data only. F003's narrow SQLite persistence implementation is present on its feature branch, but completion validation is still in progress because the required production build is blocked by the execution environment. The existing World and dossier UI remains fixture-backed throughout F003. No AI provider, authentication system, map engine, or production database exists.
 
 ## Approved Feature State
 
-F001 and F002 World Object Dossier are merged into `main`. F003 Local Persistence Foundation is the current approved implementation feature. It is limited to SQLite infrastructure and persisted Campaign/WorldObject core records; it does not approve UI read-path migration or authoring CRUD. DOC-002 records exploratory future experience notes only; it is not a product capability, roadmap commitment, or implementation feature. DEV-001 is development-environment housekeeping, not a product capability.
+F001 and F002 World Object Dossier are merged into `main`. F003 Local Persistence Foundation is the current approved implementation feature and is in progress on its feature branch; it must not be called complete until every required validation passes. It is limited to SQLite infrastructure and persisted Campaign/WorldObject core records and does not approve UI read-path migration or authoring CRUD. DOC-002 records exploratory future experience notes only; it is not a product capability, roadmap commitment, or implementation feature. DEV-001 is development-environment housekeeping, not a product capability.
 
 ## Known Risks
 
