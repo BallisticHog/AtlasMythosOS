@@ -14,6 +14,34 @@ When the application is scaffolded, keep product code under `src/`, reusable UI 
 
 No build, development, lint, or test commands exist yet; this is a docs-only baseline. Do not invent scripts in documentation. After the planned Next.js/TypeScript scaffold is added, document the actual commands in `README.md` and keep them current, for example `npm run dev`, `npm run lint`, and `npm test`.
 
+## Local Development Environment
+
+- Use Ubuntu in WSL as the primary development shell. Keep the working repository on the native WSL filesystem, not a Windows or OneDrive-mounted path.
+- Use native WSL Node.js and npm only. The required Node version is defined in `.nvmrc`; npm is the package manager and `package-lock.json` is authoritative.
+- Before JavaScript work, initialize NVM and select the version in `.nvmrc`. Automated or non-interactive shells may need to source `$NVM_DIR/nvm.sh` explicitly:
+
+  ```bash
+  export NVM_DIR="${NVM_DIR:-$HOME/.nvm}"
+  if [ ! -s "$NVM_DIR/nvm.sh" ]; then
+    echo "Native WSL NVM is unavailable."
+    exit 1
+  fi
+  . "$NVM_DIR/nvm.sh"
+  nvm use
+  ```
+
+- Verify the active toolchain before JavaScript work:
+
+  ```bash
+  command -v nvm
+  which node
+  which npm
+  node --version
+  npm --version
+  ```
+
+- Do not silently fall back to Windows `node.exe`, `npm.cmd`, or `npx.cmd`. If native WSL Node/npm is unavailable, stop and report it.
+
 ## Coding Style & Naming Conventions
 
 Follow the repository's future TypeScript and React tooling rather than adding ad hoc formatters. Use two spaces for JSON, Markdown, YAML, and TypeScript. Prefer:

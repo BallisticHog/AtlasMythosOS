@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-Phase 1: App Shell. F001 is implemented on `feat/001-app-shell` and awaiting review/merge.
+Phase 1: App Shell is complete. F001 is merged into `main`.
 
 ## Completed Foundation Work
 
@@ -10,15 +10,15 @@ Phase 1: App Shell. F001 is implemented on `feat/001-app-shell` and awaiting rev
 - Connected Git repository and initial documentation history.
 - Feature-spec, architecture-decision, review, and pull-request templates.
 - DOC-001 campaign-framework clarification for configurable, genre-neutral campaigns.
-- F001 static campaign workspace shell implemented on its feature branch.
+- F001 static campaign workspace shell merged into `main`.
 
 ## Current Implementation Status
 
-A static Next.js campaign workspace exists on `feat/001-app-shell`. It uses in-memory fixture data only; no persistence, local database, AI provider, authentication system, or production environment exists.
+A static Next.js campaign workspace is the current implementation baseline. It uses fixture/in-memory data only. Persistence remains undecided; no AI provider, authentication system, map engine, or production database exists.
 
 ## Next Approved Feature
 
-F001: App Shell is implemented on its feature branch and awaiting review/merge. No successor implementation feature is approved.
+No successor product feature is approved. DEV-001 is development-environment housekeeping, not a product capability.
 
 ## Known Risks
 
